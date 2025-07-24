@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
-app = Flask(name)
+app = Flask(__name__)
 CORS(app)  # Allow cross-origin requests (needed for Streamlit frontend)
 
 # Simulated "Database"
@@ -47,5 +47,5 @@ def delete_data(item_id):
     return jsonify({"message": "Item deleted"}), 200
 
 
-if name == 'main':
+if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
